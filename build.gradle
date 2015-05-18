@@ -1,0 +1,23 @@
+apply plugin: 'java'
+group = 'by.epam.mentoring'
+version = '1.0.0'
+
+def LOG4J_VERSION = '2.2'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        compile("org.apache.logging.log4j:log4j-core:${LOG4J_VERSION}", "org.apache.logging.log4j:log4j-api:${LOG4J_VERSION}")
+    }
+}
+
+subprojects {
+    project(':classloader') {
+        dependencies {
+            compile project(':classloader')
+        }
+    }
+}
