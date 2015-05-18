@@ -14,7 +14,7 @@
         </RandomAccessFile>
     </Appenders>
     <Loggers>
-        <Logger name="by.grsu.core.repository" level="TRACE">
+        <Logger name="by.epam.mentoring.classloader" level="TRACE">
             <AppenderRef ref="classloader-log"/>
         </Logger>
         <Root></Root>
