@@ -14,10 +14,16 @@ allprojects {
     }
 }
 
-subprojects {
-    project(':classloader') {
-        dependencies {
-            compile project(':classloader')
+task buildClassloader(type: Jar) {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
         }
+        "build/classes"
+    }
+
+    def mainClass = "by.epam.mentoring.classloader.Starter";
+    manifest {
+        attributes 'Main-Class': mainClass
     }
 }
