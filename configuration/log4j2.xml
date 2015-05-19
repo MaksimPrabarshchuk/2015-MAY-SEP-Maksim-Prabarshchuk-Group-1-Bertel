@@ -12,7 +12,7 @@
         </RandomAccessFile>
         <Console name="classloader-console" target="SYSTEM_OUT">
             <PatternLayout>
-                <Pattern>%d %c [%t] %m%n</Pattern>
+                <Pattern>[%-5p] %d %c - %m%n</Pattern>
             </PatternLayout>
         </Console>
     </Appenders>
