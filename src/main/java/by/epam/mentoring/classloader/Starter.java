@@ -15,7 +15,7 @@ public class Starter {
 
     public static void main(String args[]) {
         if (args.length < 1) {
-            System.out.println("Expect a relative path to jar");
+            LOGGER.info("Expect a relative path to jar");
             return;
         }
         final String jarName = args[0];
