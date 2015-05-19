@@ -12,10 +12,9 @@ import java.util.jar.JarFile;
 public class Starter {
     private static final Logger LOGGER = LogManager.getLogger(Starter.class.getName());
     public static final String USER_DIR = "user.dir";
-    public static final int MINIMAL_JAR_FILE_NAME_LENGTH = 4;
 
     public static void main(String args[]) {
-        if (args.length < MINIMAL_JAR_FILE_NAME_LENGTH) {
+        if (args.length < 1) {
             System.out.println("Expect a relative path to jar");
             return;
         }
@@ -27,7 +26,9 @@ public class Starter {
             myClassLoader.loadJar(new JarFile(workingDir + "/" + jarName));
         } catch (IOException e) {
             LOGGER.error(e);
+            System.out.println("Please provide correct path to jar");
         }
+
 
     }
 }

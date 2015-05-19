@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Status will print debug information about which log4j2 plugin components are loaded (all configuration elements map to log4j2 plugins), and more details like for example what appenders and loggers were found, what parameters they have and how they are combined.-->
 <Configuration status="ERROR">
     <Properties>
         <Property name="log-path">logs</Property>
     </Properties>
 
     <Appenders>
-        <!--https://logging.apache.org/log4j/2.x/manual/appenders.html, part FileAppender-->
-        <RandomAccessFile name="classloader-log" fileName="${log-path}/classloader.log" immediateFlush="false" append="true">
+        <RandomAccessFile name="classloader-file" fileName="${log-path}/classloader.log" immediateFlush="false" append="true">
             <PatternLayout>
                 <Pattern>[%-5p] %d %c [%t] %m%n</Pattern>
             </PatternLayout>
         </RandomAccessFile>
+        <Console name="classloader-console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d %c [%t] %m%n</Pattern>
+            </PatternLayout>
+        </Console>
     </Appenders>
     <Loggers>
-        <Logger name="by.grsu.core.repository" level="TRACE">
-            <AppenderRef ref="classloader-log"/>
+        <Logger name="by.epam.mentoring" level="TRACE">
+            <AppenderRef ref="classloader-console"/>
         </Logger>
         <Root></Root>
     </Loggers>

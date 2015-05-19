@@ -14,16 +14,15 @@ allprojects {
     }
 }
 
-task buildClassloader(type: Jar) {
-    from {
-        configurations.compile.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-        "build/classes"
-    }
-
+task buildClassloaderJar(type: Jar) {
     def mainClass = "by.epam.mentoring.classloader.Starter";
+    def log4jBuildPath = "-Dlog4j.configurationFile=log4j2.xml"
+    def jarName = "by.epam.mentoring.classloader"
     manifest {
-        attributes 'Main-Class': mainClass
+        attributes 'Main-Class': mainClass, 'Class-Path': log4jBuildPath
     }
+    from configurations.compile.collect { it.directory ? it : zipTree(it) }
+    from files(compileJava)
+    from "configuration"
+    baseName = jarName
 }
