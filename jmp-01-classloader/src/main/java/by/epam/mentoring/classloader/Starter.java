@@ -1,4 +1,4 @@
-package by.epam.mentoring.classloader;
+package main.java.by.epam.mentoring.classloader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

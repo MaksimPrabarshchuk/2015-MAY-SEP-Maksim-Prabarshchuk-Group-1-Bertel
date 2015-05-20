@@ -1,2 +1,4 @@
 rootProject.name = '2015-MAY-SEP-Maksim-Prabarshchuk-Group-1-Bertel'
+include 'lms-01-classloader'
+findProject(':lms-01-classloader')?.name = 'classloader'
 
