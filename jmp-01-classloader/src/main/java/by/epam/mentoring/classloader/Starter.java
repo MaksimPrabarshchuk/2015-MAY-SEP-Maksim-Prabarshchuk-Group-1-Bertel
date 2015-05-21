@@ -1,9 +1,9 @@
-package main.java.by.epam.mentoring.classloader;
+package by.epam.mentoring.classloader;
 
+import by.epam.mentoring.helper.Messenger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.jar.JarFile;
 
 /**
@@ -25,7 +25,10 @@ public class Starter {
         CustomClassLoader myClassLoader = new CustomClassLoader();
         try {
             myClassLoader.loadJar(new JarFile(workingDir + "/" + jarName));
-        } catch (IOException e) {
+            Class someClass = myClassLoader.findClass("by.epam.mentoring.helper.ConsoleMessenger.class");
+            Messenger messenger = (Messenger) someClass.newInstance();
+            messenger.printMessage();
+        } catch (Exception e) {
             LOGGER.error(e);
         }
     }

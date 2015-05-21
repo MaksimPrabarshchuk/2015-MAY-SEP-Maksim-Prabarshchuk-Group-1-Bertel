@@ -1,4 +1,4 @@
-package main.java.by.epam.mentoring.helper;
+package by.epam.mentoring.helper;
 
 /**
  * Created by Antoni_Bertel on 5/19/2015.
