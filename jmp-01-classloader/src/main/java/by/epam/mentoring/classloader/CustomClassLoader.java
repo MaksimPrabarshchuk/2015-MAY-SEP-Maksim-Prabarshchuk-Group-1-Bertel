@@ -40,7 +40,7 @@ public class CustomClassLoader extends ClassLoader {
                 String currentClassName = jarEntry.getName().replaceAll("/", "\\.");
                 if (className.equalsIgnoreCase(currentClassName)) {
                     InputStream in = this.jarFile.getInputStream(jarEntry);
-                    byte[] array = new byte[1024];
+                    byte[] array = new byte[in.available()];
                     ByteArrayOutputStream out = new ByteArrayOutputStream(array.length);
                     int length = in.read(array);
                     while (length > 0) {
