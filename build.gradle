@@ -2,6 +2,7 @@ apply plugin: 'java'
 
 dependencies {
     compile project(':classloader')
+    compile project(':gc')
 }
 
 allprojects {
@@ -20,20 +21,5 @@ allprojects {
 subprojects {
     group = 'by.epam.mentoring'
     version = '1.0.0'
-}
-
-project(':classloader') {
-    task buildClassloaderJar(type: Jar) {
-        def mainClass = "by.epam.mentoring.classloader.Starter";
-        def log4jBuildPath = "-Dlog4j.configurationFile=log4j2.xml"
-        def jarName = "by.epam.mentoring.classloader"
-        manifest {
-            attributes 'Main-Class': mainClass, 'Class-Path': log4jBuildPath
-        }
-        from configurations.compile.collect { it.directory ? it : zipTree(it) }
-        from files(compileJava)
-        from "configuration"
-        baseName = jarName
-    }
 }
 

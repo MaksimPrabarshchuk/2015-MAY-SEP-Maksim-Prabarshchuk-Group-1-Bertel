@@ -1,4 +1,4 @@
 rootProject.name = '2015-MAY-SEP-Maksim-Prabarshchuk-Group-1-Bertel'
-include 'jmp-01-classloader'
+include 'jmp-01-classloader', 'jmp-02-gc'
 findProject(':jmp-01-classloader')?.name = 'classloader'
-
+findProject(':jmp-02-gc')?.name = 'gc'
