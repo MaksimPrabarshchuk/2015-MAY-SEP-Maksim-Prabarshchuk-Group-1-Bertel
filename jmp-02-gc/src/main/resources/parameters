@@ -1,1 +1,1 @@
-1. -Xms3m -Xmx12m -Xmn1m —XX:PermSize=20m —XX:MaxPermSize=20m -XX:+UseParallelGC
+1. -Xms3m -Xmx12m -Xmn1m â€”XX:PermSize=20m â€”XX:MaxPermSize=20m -XX:+UseParallelGC
