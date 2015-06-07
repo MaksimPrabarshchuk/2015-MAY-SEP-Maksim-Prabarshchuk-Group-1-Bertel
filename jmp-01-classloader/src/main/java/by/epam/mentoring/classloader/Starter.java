@@ -1,6 +1,6 @@
 package by.epam.mentoring.classloader;
 
-import by.epam.mentoring.helper.Messenger;
+import by.epam.mentoring.processor.IProcessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,8 +27,8 @@ public class Starter {
         try {
             myClassLoader.loadJar(new JarFile(workingDir + "/" + jarName));
             Class someClass = myClassLoader.loadClass(className);
-            Messenger messenger = (Messenger) someClass.newInstance();
-            messenger.printMessage();
+            IProcessor IProcessor = (IProcessor) someClass.newInstance();
+            IProcessor.process();
         } catch (Exception e) {
             LOGGER.error(e);
         }
