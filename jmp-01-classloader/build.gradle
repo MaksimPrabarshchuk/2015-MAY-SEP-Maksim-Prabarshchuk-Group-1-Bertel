@@ -1,3 +1,7 @@
+dependencies {
+    compile(project(":shared"))
+}
+
 task buildClassloaderJar(type: Jar) {
     def mainClass = "by.epam.mentoring.classloader.Starter";
     def log4jBuildPath = "-Dlog4j.configurationFile=log4j2.xml"

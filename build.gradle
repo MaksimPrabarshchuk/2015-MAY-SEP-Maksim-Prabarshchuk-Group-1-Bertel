@@ -1,8 +1,10 @@
 apply plugin: 'java'
 
 dependencies {
+    compile project(':shared')
     compile project(':classloader')
-    compile project(':gc')
+    compile project(':gc-memory')
+    compile project(':multithreading')
 }
 
 allprojects {

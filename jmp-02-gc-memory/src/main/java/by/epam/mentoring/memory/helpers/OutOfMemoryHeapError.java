@@ -1,6 +1,6 @@
 package by.epam.mentoring.memory.helpers;
 
-import by.epam.mentoring.memory.processor.IProcessor;
+import by.epam.mentoring.processor.IProcessor;
 
 import java.util.ArrayList;
 import java.util.List;

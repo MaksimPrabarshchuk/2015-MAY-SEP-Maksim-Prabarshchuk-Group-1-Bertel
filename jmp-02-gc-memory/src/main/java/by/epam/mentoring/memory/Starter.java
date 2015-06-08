@@ -11,7 +11,7 @@ public class Starter {
     private static final Logger LOGGER = LogManager.getLogger(Starter.class.getName());
 
     public static void main(String[] args) {
-        LOGGER.info("Parameters: 1 - OutOfMemoryPermgen, 2 - OutOfMemoryHeap, 3 - OytOfMemory (Cyclic references)");
+        LOGGER.info("Parameters: 1 - OutOfMemoryPermgen, 2 - OutOfMemoryHeap, 3 - OutOfMemory (Cyclic references)");
         if (args.length < 1) {
             LOGGER.error("Expected parameter");
             return;

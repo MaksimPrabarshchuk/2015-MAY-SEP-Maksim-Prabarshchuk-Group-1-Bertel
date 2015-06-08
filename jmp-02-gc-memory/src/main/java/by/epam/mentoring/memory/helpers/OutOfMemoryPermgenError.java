@@ -1,7 +1,7 @@
 package by.epam.mentoring.memory.helpers;
 
 import by.epam.mentoring.classloader.CustomClassLoader;
-import by.epam.mentoring.memory.processor.IProcessor;
+import by.epam.mentoring.processor.IProcessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

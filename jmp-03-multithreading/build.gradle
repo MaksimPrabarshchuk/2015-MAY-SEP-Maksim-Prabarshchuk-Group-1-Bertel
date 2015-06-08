@@ -1,12 +1,10 @@
 dependencies {
     compile(project(":shared"))
-    compile(project(":classloader"))
 }
-
-task buildGcMemoryJar(type: Jar) {
-    def mainClass = "by.epam.mentoring.memory.Starter";
+task buildMultithreadingJar(type: Jar) {
+    def mainClass = "by.epam.mentoring.miltithreading.Starter";
     def log4jBuildPath = "-Dlog4j.configurationFile=log4j2.xml"
-    def jarName = "by.epam.mentoring.gc-memory"
+    def jarName = "by.epam.mentoring.multithreading"
     manifest {
         attributes 'Main-Class': mainClass, 'Class-Path': log4jBuildPath
     }
