@@ -13,6 +13,7 @@ public class Starter {
         LOGGER.info("Parameters: 1 - Blocking thread, 2 - Non-blocking thread, 3 - queue");
         if (args.length < 1) {
             LOGGER.error("Expected parameter");
+            return;
         }
         Integer attribute = Integer.parseInt(args[0]);
         LOGGER.info("Got attributes {}", attribute);
