@@ -1,7 +1,7 @@
 rootProject.name = '2015-MAY-SEP-Maksim-Prabarshchuk-Group-1-Bertel'
-include 'jmp-00-shared', 'jmp-01-classloader', 'jmp-02-gc-memory', 'jmp-03-multithreading'
+include 'jmp-00-shared', 'jmp-01-classloader', 'jmp-02-gc-memory', 'jmp-03-multithreading', 'jmp-04-tests'
 findProject(':jmp-00-shared')?.name = 'shared'
 findProject(':jmp-01-classloader')?.name = 'classloader'
 findProject(':jmp-02-gc-memory')?.name = 'gc-memory'
 findProject(':jmp-03-multithreading')?.name = 'multithreading'
-
+findProject(':jmp-04-tests')?.name = 'tests'

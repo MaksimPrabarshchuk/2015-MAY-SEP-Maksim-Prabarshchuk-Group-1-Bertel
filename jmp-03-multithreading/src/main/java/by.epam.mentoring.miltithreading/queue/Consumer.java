@@ -3,34 +3,31 @@ package by.epam.mentoring.miltithreading.queue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Random;
+import java.util.concurrent.BlockingQueue;
 
 public class Consumer implements Runnable {
-
     private static final Logger LOGGER = LogManager.getLogger(Consumer.class.getName());
-    private Random random = new Random();
+    public static final Integer EXIT = -1;
+    private BlockingQueue<Message> queue;
+    private Integer messagesSum = 0;
 
-    private Queue queue;
-    private String name;
-
-    public Consumer(Queue queue, String name) {
-        this.queue = queue;
-        this.name = name;
-        new Thread(this, name).start();
+    public Consumer(BlockingQueue<Message> q) {
+        this.queue = q;
     }
 
     @Override
     public void run() {
-        while (true) {
-            Object o = queue.get();
-            if (o != null) {
-                LOGGER.info("{} got :{}", name, o);
+        try {
+            Message msg = queue.take();
+            while (!msg.getMsg().equals(EXIT)) {
+                Thread.sleep(10);
+                Integer message = msg.getMsg();
+                messagesSum += message;
+                LOGGER.info("Consumed {}, total sum {}", message, messagesSum);
+                msg = queue.take();
             }
-            try {
-                Thread.sleep(random.nextInt(150));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        } catch (InterruptedException e) {
+            LOGGER.error(e);
         }
     }
 }

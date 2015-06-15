@@ -1,0 +1,18 @@
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.8.5'
+    testCompile 'org.easytesting:fest-assert:1.4'
+}
+
+    task buildTestsJar(type: Jar) {
+        def mainClass = "game.tic.tac.toe.tictactoe.TicTacToeMain";
+        def log4jBuildPath = "-Dlog4j.configurationFile=log4j2.xml"
+        def jarName = "by.epam.mentoring.tests"
+        manifest {
+            attributes 'Main-Class': mainClass, 'Class-Path': log4jBuildPath
+        }
+        from configurations.compile.collect { it.directory ? it : zipTree(it) }
+        from files(compileJava)
+        from "../jmp-00-shared/configuration"
+        baseName = jarName
+    }

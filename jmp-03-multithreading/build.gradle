@@ -10,6 +10,6 @@ task buildMultithreadingJar(type: Jar) {
     }
     from configurations.compile.collect { it.directory ? it : zipTree(it) }
     from files(compileJava)
-    from "configuration"
+    from "../jmp-00-shared/configuration"
     baseName = jarName
 }

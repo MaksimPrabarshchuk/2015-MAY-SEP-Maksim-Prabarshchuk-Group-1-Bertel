@@ -3,41 +3,37 @@ package by.epam.mentoring.miltithreading.queue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Random;
+import java.util.concurrent.BlockingQueue;
 
 public class Producer implements Runnable {
-
     private static final Logger LOGGER = LogManager.getLogger(Producer.class.getName());
-    private Random random = new Random();
+    private BlockingQueue<Message> queue;
 
-    private Queue queue;
-    private String name;
-
-    public Producer(Queue queue, String name) {
-        this.queue = queue;
-        this.name = name;
-        new Thread(this, name).start();
+    public Producer(BlockingQueue<Message> q) {
+        this.queue = q;
     }
 
     @Override
     public void run() {
-        Integer i = 0;
-        while (true) {
+        for (int i = 0; i < 100; i++) {
+            Message msg = new Message(i);
             try {
-                queue.put(++i);
-                LOGGER.info("{} put :{}", name, i);
-                sleep();
-            } catch (FullQueueException fullQueueExceprion) {
-                sleep();
+                Thread.sleep(i);
+            } catch (InterruptedException e) {
+                LOGGER.error(e);
             }
+            putMessage(msg);
+            LOGGER.info("Produced {}", msg.getMsg());
         }
+        //adding exit message
+        putMessage(new Message(-1));
     }
 
-    private void sleep() {
+    private void putMessage(Message message) {
         try {
-            Thread.sleep(random.nextInt(150));
+            queue.put(message);
         } catch (InterruptedException e) {
-            LOGGER.error("Producer:", e);
+            LOGGER.error(e);
         }
     }
 
