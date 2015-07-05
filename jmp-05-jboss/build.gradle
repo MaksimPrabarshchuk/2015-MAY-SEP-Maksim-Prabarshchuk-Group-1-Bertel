@@ -1,3 +1,33 @@
-dependencies {
+apply plugin: 'java'
 
+dependencies {
+    compile project(':web')
 }
+
+allprojects {
+    apply plugin: 'java'
+    def LOG4J_VERSION = '2.2'
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        compile("org.apache.logging.log4j:log4j-core:${LOG4J_VERSION}", "org.apache.logging.log4j:log4j-api:${LOG4J_VERSION}")
+        compile "postgresql:postgresql:9.1-901-1.jdbc4"
+        compile "junit:junit:4.11"
+        compile "org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:1.0.1.Final"
+        compile "org.jboss.spec.javax.annotation:jboss-annotations-api_1.1_spec:1.0.1.Final"
+        compile "org.jboss.as:jboss-as-ejb-client-bom:7.1.1.Final"
+        compile "org.hibernate:hibernate-core:4.0.0.Final"
+        compile "org.hibernate:hibernate-entitymanager:4.0.0.Final"
+        compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final"
+        compile "javax.servlet:jstl:1.2"
+    }
+}
+
+
+subprojects {
+    group = 'by.epam.mentoring.jboss'
+    version = '1.0.0'
+}
+
