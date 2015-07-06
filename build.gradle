@@ -6,6 +6,7 @@ dependencies {
     compile project(':gc-memory')
     compile project(':multithreading')
     compile project(':tests')
+    compile project(':jboss')
 }
 
 allprojects {
