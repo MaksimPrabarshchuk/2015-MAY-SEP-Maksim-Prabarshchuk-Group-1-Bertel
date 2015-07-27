@@ -1,10 +1,10 @@
-package by.epam.mentoring.spring.controller;
+package by.epam.mentoring.spring;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
+public class ApplicationController {
 
 	@RequestMapping("/home")
 	public String home() {
