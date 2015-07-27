@@ -7,10 +7,12 @@ dependencies {
     compile project(':multithreading')
     compile project(':tests')
     compile project(':jboss')
+    compile project(':spring-core')
 }
 
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'idea'
     def LOG4J_VERSION = '2.2'
     repositories {
         mavenLocal()
