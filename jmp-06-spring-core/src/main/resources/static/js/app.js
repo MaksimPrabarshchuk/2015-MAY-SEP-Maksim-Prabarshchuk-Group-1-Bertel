@@ -70,7 +70,10 @@ taskManagerModule.controller('taskManagerController', function ($scope, $http) {
     $scope.archiveTasks = function archiveTasks() {
         $scope.selection.forEach(function (taskUri) {
             if (taskUri != undefined) {
-                $http.delete(taskUri, {taskArchived: 1});
+                $http.delete(urlBase + '/tasks/' + taskUri, {taskArchived: 1}).
+                    success(function () {
+                    findAllTasks();
+                });
             }
         });
         findAllTasks();
