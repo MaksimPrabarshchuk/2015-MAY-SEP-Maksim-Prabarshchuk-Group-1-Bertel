@@ -12,5 +12,7 @@ apply plugin: 'spring-boot'
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.batch:spring-batch-infrastructure:3.0.4.RELEASE")
+    compile("org.springframework.data:spring-data-mongodb:1.7.1.RELEASE")
 }
